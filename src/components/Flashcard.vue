@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import { NCard } from 'naive-ui'
+import FlashcardField from './FlashcardField.vue'
 defineOptions({
   name: 'FlashcardItem',
 })
@@ -47,87 +48,54 @@ const wordCerf = computed(() => {
 
 <template>
   <n-card :title="wordCerf">
-    <div class="field-container">
-      <div class="field-label">Translation</div>
-      <div
-        style="color: black; font-style: normal"
-        :class="visibleFields.translation ? 'reveal-text' : 'reveal-placeholder'"
-        @click="visibleFields.translation = !visibleFields.translation"
-      >
-        {{ visibleFields.translation ? translation : word }}
-      </div>
-    </div>
+    <FlashcardField
+      :is-visible="visibleFields.translation"
+      :value="translation"
+      field-container-class="field-container"
+      field-label-class="field-label"
+      reveal-text-class="reveal-text"
+      reveal-placeholder-class="reveal-placeholder"
+      :placeholder-text="word"
+      @update-visible="visibleFields.translation = $event"
+      label="Translation"
+    />
 
-    <div class="field-container">
-      <div class="field-label">Definition</div>
-      <div
-        :class="visibleFields.definition ? 'reveal-text' : 'reveal-placeholder'"
-        @click="visibleFields.definition = !visibleFields.definition"
-      >
-        {{ visibleFields.definition ? definition : 'Click here to see word definition' }}
-      </div>
-    </div>
+    <FlashcardField
+      :is-visible="visibleFields.definition"
+      :value="definition"
+      field-container-class="field-container"
+      field-label-class="field-label"
+      reveal-text-class="reveal-text"
+      reveal-placeholder-class="reveal-placeholder"
+      placeholder-text="Click here to see this word definition"
+      @update-visible="visibleFields.definition = $event"
+      label="Definition"
+    />
 
-    <div class="field-container">
-      <div class="field-label">Example</div>
-      <div
-        :class="visibleFields.example ? 'reveal-text' : 'reveal-placeholder'"
-        @click="visibleFields.example = !visibleFields.example"
-      >
-        {{
-          visibleFields.example
-            ? example
-            : 'Click here to see how this word can be used in sentence'
-        }}
-      </div>
-    </div>
+    <FlashcardField
+      :is-visible="visibleFields.example"
+      :value="example"
+      field-container-class="field-container"
+      field-label-class="field-label"
+      reveal-text-class="reveal-text"
+      reveal-placeholder-class="reveal-placeholder"
+      placeholder-text="Click here to see how this word can be used in sentence"
+      @update-visible="visibleFields.example = $event"
+      label="Example"
+    />
 
-    <div class="field-container">
-      <div class="field-label">Type</div>
-      <div
-        :class="visibleFields.type ? 'reveal-text' : 'reveal-placeholder'"
-        @click="visibleFields.type = !visibleFields.type"
-      >
-        {{ visibleFields.type ? type : 'Click here to see type of this word' }}
-      </div>
-    </div>
+    <FlashcardField
+      :is-visible="visibleFields.type"
+      :value="type"
+      field-container-class="field-container"
+      field-label-class="field-label"
+      reveal-text-class="reveal-text"
+      reveal-placeholder-class="reveal-placeholder"
+      placeholder-text="Click here to see type of this word"
+      @update-visible="visibleFields.type = $event"
+      label="Type"
+    />
   </n-card>
 </template>
 
-<style scoped>
-.field-container {
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-.field-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: darkgray;
-  margin-bottom: 4px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-}
-
-.reveal-placeholder {
-  color: #aaa;
-  font-style: italic;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.reveal-placeholder:hover {
-  color: #18a058;
-}
-
-.reveal-text {
-  color: #333;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.reveal-text:hover {
-  color: #18a058;
-}
-</style>
+<style scoped></style>
