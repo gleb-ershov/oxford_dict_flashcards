@@ -1,45 +1,46 @@
 # flashcards_voc
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a flashcard vocabulary trainer built with Vue 3 and Vite. It uses the Oxford 5000 word list with translations to help users learn and review English vocabulary efficiently.
+
+## Features
+
+- Flashcards with English words, definitions, examples, and translations
+- Audio pronunciation (UK/US)
+- Pagination and navigation through word lists
+- Responsive and user-friendly interface
+
+## Project Structure
+
+- `src/` — main source code (Vue components, assets, modules)
+- `public/` — static files (favicon, etc.)
+- `oxford_5000_with_translations.json` — main vocabulary data
+- Configuration files: `.env`, `vite.config.ts`, `tsconfig.json`, etc.
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+- VSCode + Volar (for Vue 3 support)
 
 ## Project Setup
 
-```sh
+````sh
 yarn
-```
 
-### Compile and Hot-Reload for Development
+Compile and Hot-Reload for Development
 
 ```sh
 yarn dev
-```
 
-### Type-Check, Compile and Minify for Production
+Type-Check, Compile and Minify for Production
 
 ```sh
 yarn build
-```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-yarn test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
+Lint with ESLint
 
 ```sh
 yarn lint
-```
+
+
+License
+MIT
+````
